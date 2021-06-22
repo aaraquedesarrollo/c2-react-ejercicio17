@@ -1,11 +1,14 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { InfoArticulos } from "../components/InfoArticulos";
 import { FaTimes } from "react-icons/fa";
 import { ListaContext } from "../contexts/ListaContext";
+import { useHistory } from "react-router-dom";
 
 export const PaginaLista = () => {
   const { listaArticulos, setListaArticulos, urlApi } =
     useContext(ListaContext);
+  const history = useHistory();
+  const [editandoArticulo, setEditandoArticulo] = useState(false);
 
   const borrarArticulo = async (articulo) => {
     const resp = await fetch(urlApi + articulo.id, { method: "DELETE" });
@@ -36,13 +39,23 @@ export const PaginaLista = () => {
     }
   };
 
+  const abrirFormularioEditar = (e, idArticulo) => {
+    if (e.target.nodeName === "SPAN") {
+      history.push("/formulario/" + idArticulo);
+    }
+  };
+
   return (
     <>
-      <InfoArticulos />
+      <InfoArticulos editandoArticulo={editandoArticulo} />
       <main className="principal espaciado">
         <ul className="articulos">
           {listaArticulos.map((articulo) => (
-            <li key={articulo.id} className="articulo">
+            <li
+              key={articulo.id}
+              className="articulo"
+              onClick={(e) => abrirFormularioEditar(e, articulo.id)}
+            >
               <input
                 type="checkbox"
                 className="marcar"
