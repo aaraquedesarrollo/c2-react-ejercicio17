@@ -1,28 +1,51 @@
-import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useCallback, useContext, useEffect, useState } from "react";
+import { useHistory, useParams } from "react-router-dom";
 import { InfoArticulos } from "../components/InfoArticulos";
 import { ListaContext } from "../contexts/ListaContext";
 
+import { Redirect } from "react-router-dom";
+
 export const PaginaFormulario = (props) => {
   const { anyadirProducto, editarProducto } = props;
+  const history = useHistory();
   const { idAlimento } = useParams();
   const [nombre, setNombre] = useState("");
   const [precio, setPrecio] = useState("");
   const listaArticulos = useContext(ListaContext);
   const [idAlimentoFiltrado, setIdAlimentoFiltrado] = useState(null);
-  debugger;
+  let accion;
   const buscarIdAlimento = (id, listaArticulos) => {
-    return listaArticulos.find((articulo) =>
-      articulo.id === parseInt(id) ? articulo.id : null
-    ).id;
+    if (listaArticulos.length > 0) {
+      return listaArticulos.find((articulo) =>
+        articulo.id === parseInt(id) ? articulo.id : null
+      ).id;
+    }
+    return null;
   };
-
-  useEffect(
-    () => setIdAlimentoFiltrado(buscarIdAlimento(idAlimento, listaArticulos)),
-    [idAlimento, listaArticulos]
+  const setAlimentoFormulario = useCallback(
+    (id) => {
+      const alimentoTemp = listaArticulos.find((articulo) =>
+        articulo.id === parseInt(id) ? articulo : null
+      );
+      if (typeof alimentoTemp !== "undefined") {
+        setNombre(alimentoTemp.nombre);
+        setPrecio(alimentoTemp.precio);
+      }
+    },
+    [listaArticulos]
   );
 
-  const accion = idAlimentoFiltrado ? "Editar" : "Crear";
+  useEffect(() => {
+    const idTemp = buscarIdAlimento(idAlimento, listaArticulos);
+    setIdAlimentoFiltrado(idTemp);
+    setAlimentoFormulario(idTemp);
+  }, [idAlimento, listaArticulos, setAlimentoFormulario]);
+
+  if (idAlimentoFiltrado) {
+    accion = "Editar";
+  } else {
+    accion = "Crear";
+  }
 
   const submitArticulo = (e) => {
     e.preventDefault();
@@ -38,6 +61,8 @@ export const PaginaFormulario = (props) => {
     } else {
       anyadirProducto(producto);
     }
+
+    history.push("/lista");
   };
 
   return (

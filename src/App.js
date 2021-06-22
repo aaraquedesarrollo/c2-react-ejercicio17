@@ -41,7 +41,6 @@ function App() {
   const editarProducto = async (id, producto) => {
     const productoTemp = { ...producto };
     productoTemp.id = id;
-    debugger;
     const metodo = {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
