@@ -1,10 +1,11 @@
+import { useContext } from "react";
+import { InfoArticulos } from "../components/InfoArticulos";
+import { ListaContext } from "../contexts/ListaContext";
+
 export const PaginaLista = () => {
   return (
     <>
-      <section class="info espaciado bloque-superior">
-        <i class="icono fas fa-plus-circle"></i>
-        <p class="n-articulos">2/3 comprados</p>
-      </section>
+      <InfoArticulos />
       <main class="principal espaciado">
         <ul class="articulos">
           <li class="articulo">
