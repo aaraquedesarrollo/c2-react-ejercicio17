@@ -1,14 +1,29 @@
+import { useEffect, useState } from "react";
+import { InfoArticulos } from "./components/InfoArticulos";
+
 function App() {
+  const urlApi = "http://localhost:3001/articulos";
+
+  const [listaArticulos, setListaArticulos] = useState([]);
+
+  const obtenerListaArticulos = async () => {
+    const resp = await fetch(urlApi);
+    const resultado = await resp.json();
+    setListaArticulos(resultado);
+  };
+
+  useEffect(() => obtenerListaArticulos(), []);
+
   return (
     <>
-      <header class="cabecera espaciado bloque-superior">
+      <header className="cabecera espaciado bloque-superior">
         <h1>Lista de la compra</h1>
         <nav>
-          <ul class="navegacion">
+          <ul className="navegacion">
             <li>
               <a href="principal">Principal</a>
             </li>
-            <li class="actual">
+            <li className="actual">
               <a href="lista">Lista</a>
             </li>
             <li>
@@ -17,6 +32,7 @@ function App() {
           </ul>
         </nav>
       </header>
+      <InfoArticulos listaArticulos={listaArticulos} />
     </>
   );
 }
