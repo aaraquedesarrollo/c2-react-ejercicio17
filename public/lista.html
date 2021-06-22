@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/estilos.css" />
+    <title>Lista de la compra</title>
+  </head>
+  <body>
+    <header class="cabecera espaciado bloque-superior">
+      <h1>Lista de la compra</h1>
+      <nav>
+        <ul class="navegacion">
+          <li><a href="principal">Principal</a></li>
+          <li class="actual"><a href="lista">Lista</a></li>
+          <li><a href="acerca-de">Acerca de</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section class="info espaciado bloque-superior">
+      <i class="icono fas fa-plus-circle"></i>
+      <p class="n-articulos">2/3 comprados</p>
+    </section>
+    <main class="principal espaciado">
+      <ul class="articulos">
+        <li class="articulo">
+          <input type="checkbox" class="marcar" />
+          <span class="nombre">Pan</span>
+          <span class="precio">0.75€</span>
+          <i class="borrar fas fa-times"></i>
+        </li>
+        <li class="articulo">
+          <input type="checkbox" class="marcar" />
+          <span class="nombre">Azúcar</span>
+          <i class="borrar fas fa-times"></i>
+        </li>
+        <li class="articulo">
+          <input type="checkbox" class="marcar" />
+          <span class="nombre">Leche</span>
+          <span class="precio">1.20€</span>
+          <i class="borrar fas fa-times"></i>
+        </li>
+      </ul>
+      <span class="precio-total">1.95€</span>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/estilos.css" />
+    <title>Lista de la compra</title>
+  </head>
+  <body>
+    <header class="cabecera espaciado bloque-superior">
+      <h1>Lista de la compra</h1>
+      <nav>
+        <ul class="navegacion">
+          <li><a href="principal">Principal</a></li>
+          <li><a href="lista">Lista</a></li>
+          <li><a href="acerca-de">Acerca de</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section class="info espaciado bloque-superior">
+      <i class="icono fas fa-minus-circle"></i>
+      <p class="n-articulos">2/3 comprados</p>
+    </section>
+    <main class="principal espaciado">
+      <h2 class="titulo-seccion">Editar artículo</h2>
+      <form class="form-crear">
+        <label for="nombre">Nombre:</label>
+        <input class="control" type="text" id="nombre" />
+        <label for="precio">Precio:</label>
+        <div class="control-moneda">
+          <input class="control" type="number" id="precio" /> €
+        </div>
+        <button class="enviar" type="submit">Modificar</button>
+      </form>
+    </main>
+  </body>
+</html>
