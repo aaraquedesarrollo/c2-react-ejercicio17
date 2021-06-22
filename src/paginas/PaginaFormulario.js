@@ -1,10 +1,9 @@
+import { InfoArticulos } from "../components/InfoArticulos";
+
 export const PaginaFormulario = () => {
   return (
     <>
-      <section class="info espaciado bloque-superior">
-        <i class="icono fas fa-minus-circle"></i>
-        <p class="n-articulos">2/3 comprados</p>
-      </section>
+      <InfoArticulos />
       <main class="principal espaciado">
         <h2 class="titulo-seccion">Editar artículo</h2>
         <form class="form-crear">

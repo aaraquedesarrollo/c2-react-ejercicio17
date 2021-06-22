@@ -1,6 +1,8 @@
-export const InfoArticulos = (props) => {
-  const { listaArticulos } = props;
+import { useContext } from "react";
+import { ListaContext } from "../contexts/ListaContext";
 
+export const InfoArticulos = () => {
+  const listaArticulos = useContext(ListaContext);
   return (
     <section className="info espaciado bloque-superior">
       <i className="icono fas fa-plus-circle"></i>
