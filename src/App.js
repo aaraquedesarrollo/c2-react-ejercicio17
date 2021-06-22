@@ -14,7 +14,7 @@ import { PaginaAcercaDe } from "./paginas/PaginaAcercaDe";
 import { ListaContext } from "./contexts/ListaContext";
 
 function App() {
-  const urlApi = "http://localhost:3001/articulos";
+  const urlApi = "http://localhost:3001/articulos/";
 
   const [listaArticulos, setListaArticulos] = useState([]);
 
@@ -28,7 +28,13 @@ function App() {
 
   return (
     <>
-      <ListaContext.Provider value={listaArticulos}>
+      <ListaContext.Provider
+        value={{
+          listaArticulos: listaArticulos,
+          setListaArticulos: setListaArticulos,
+          urlApi: urlApi,
+        }}
+      >
         <Router>
           <Cabecera />
           <Switch>
