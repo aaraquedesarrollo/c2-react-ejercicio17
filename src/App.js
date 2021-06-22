@@ -73,7 +73,10 @@ function App() {
               <PaginaLista />
             </Route>
             <Route path="/formulario/:idAlimento" exact>
-              <PaginaFormulario editarProducto={editarProducto} />
+              <PaginaFormulario
+                editarProducto={editarProducto}
+                anyadirProducto={anyadirProducto}
+              />
             </Route>
             <Route path="/formulario/" exact>
               <PaginaFormulario anyadirProducto={anyadirProducto} />

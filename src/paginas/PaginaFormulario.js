@@ -11,14 +11,19 @@ export const PaginaFormulario = (props) => {
   const { idAlimento } = useParams();
   const [nombre, setNombre] = useState("");
   const [precio, setPrecio] = useState("");
-  const listaArticulos = useContext(ListaContext);
+  const { listaArticulos } = useContext(ListaContext);
   const [idAlimentoFiltrado, setIdAlimentoFiltrado] = useState(null);
   let accion;
+  debugger;
   const buscarIdAlimento = (id, listaArticulos) => {
     if (listaArticulos.length > 0) {
-      return listaArticulos.find((articulo) =>
+      const articuloTemp = listaArticulos.find((articulo) =>
         articulo.id === parseInt(id) ? articulo.id : null
-      ).id;
+      );
+
+      if (articuloTemp) {
+        return articuloTemp.id;
+      }
     }
     return null;
   };
@@ -52,10 +57,10 @@ export const PaginaFormulario = (props) => {
     debugger;
     const producto = {
       nombre,
-      precio,
+      precio: parseInt(precio),
       comprado: false,
     };
-
+    debugger;
     if (accion === "Editar") {
       editarProducto(idAlimentoFiltrado, producto);
     } else {
