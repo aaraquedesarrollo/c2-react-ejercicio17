@@ -17,6 +17,7 @@ function App() {
   const urlApi = "http://localhost:3001/articulos/";
 
   const [listaArticulos, setListaArticulos] = useState([]);
+  const [editandoArticulo, setEditandoArticulo] = useState(false);
 
   const editarArray = (producto) => {
     const listaTemp = [...listaArticulos];
@@ -73,6 +74,8 @@ function App() {
           listaArticulos: listaArticulos,
           setListaArticulos: setListaArticulos,
           urlApi: urlApi,
+          editandoArticulo: editandoArticulo,
+          setEditandoArticulo: setEditandoArticulo,
         }}
       >
         <Router>
