@@ -9,7 +9,7 @@ export const PaginaFormulario = (props) => {
   const { idAlimento } = useParams();
   const [nombre, setNombre] = useState("");
   const [precio, setPrecio] = useState("");
-  const { listaArticulos } = useContext(ListaContext);
+  const { listaArticulos, setEditandoArticulo } = useContext(ListaContext);
   const [idAlimentoFiltrado, setIdAlimentoFiltrado] = useState(null);
   let accion;
   debugger;
@@ -65,6 +65,7 @@ export const PaginaFormulario = (props) => {
       anyadirProducto(producto);
     }
 
+    setEditandoArticulo(false);
     history.push("/lista");
   };
 

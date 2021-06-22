@@ -5,10 +5,9 @@ import { ListaContext } from "../contexts/ListaContext";
 import { useHistory } from "react-router-dom";
 
 export const PaginaLista = () => {
-  const { listaArticulos, setListaArticulos, urlApi } =
+  const { listaArticulos, setListaArticulos, urlApi, setEditandoArticulo } =
     useContext(ListaContext);
   const history = useHistory();
-  const [editandoArticulo, setEditandoArticulo] = useState(false);
 
   const borrarArticulo = async (articulo) => {
     const resp = await fetch(urlApi + articulo.id, { method: "DELETE" });
@@ -43,11 +42,12 @@ export const PaginaLista = () => {
     if (e.target.nodeName === "SPAN") {
       history.push("/formulario/" + idArticulo);
     }
+    setEditandoArticulo(true);
   };
 
   return (
     <>
-      <InfoArticulos editandoArticulo={editandoArticulo} />
+      <InfoArticulos />
       <main className="principal espaciado">
         <ul className="articulos">
           {listaArticulos.map((articulo) => (
