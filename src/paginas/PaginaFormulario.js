@@ -55,7 +55,7 @@ export const PaginaFormulario = (props) => {
     debugger;
     const producto = {
       nombre,
-      precio: parseInt(precio),
+      precio: +precio,
       comprado: false,
     };
     debugger;

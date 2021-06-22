@@ -18,6 +18,16 @@ function App() {
 
   const [listaArticulos, setListaArticulos] = useState([]);
 
+  const editarArray = (producto) => {
+    const listaTemp = [...listaArticulos];
+
+    setListaArticulos(
+      listaTemp.map((alimento) =>
+        alimento.id === producto.id ? producto : alimento
+      )
+    );
+  };
+
   const obtenerListaArticulos = async () => {
     const resp = await fetch(urlApi);
     const resultado = await resp.json();
@@ -35,6 +45,10 @@ function App() {
     const response = await fetch(urlApi, metodo);
 
     if (response.ok) {
+      const json = await response.json();
+      const listaTemp = [...listaArticulos];
+      listaTemp.push(json);
+      setListaArticulos(listaTemp);
     }
   };
 
@@ -49,6 +63,7 @@ function App() {
     const response = await fetch(`${urlApi}/${id}`, metodo);
 
     if (response.ok) {
+      editarArray(productoTemp);
     }
   };
   return (
