@@ -1,28 +1,5 @@
-<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
-    <link rel="stylesheet" href="css/estilos.css" />
-    <title>Lista de la compra</title>
-  </head>
-  <body>
-    <header class="cabecera espaciado bloque-superior">
-      <h1>Lista de la compra</h1>
-      <nav>
-        <ul class="navegacion">
-          <li><a href="index">Principal</a></li>
-          <li class="actual"><a href="lista">Lista</a></li>
-          <li><a href="acerca-de">Acerca de</a></li>
-        </ul>
-      </nav>
-    </header>
+export const PaginaAcercaDe = () => {
+  return (
     <main class="acerca-de">
       <h2>Acerca de Lista de la compra</h2>
       <p>
@@ -44,5 +21,5 @@
         adipisci.
       </p>
     </main>
-  </body>
-</html>
+  );
+};

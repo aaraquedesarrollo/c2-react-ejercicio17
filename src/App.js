@@ -17,9 +17,6 @@ function App() {
           </ul>
         </nav>
       </header>
-      <main class="home">
-        <h2>Bienvenido a la lista de la compra</h2>
-      </main>
     </>
   );
 }
