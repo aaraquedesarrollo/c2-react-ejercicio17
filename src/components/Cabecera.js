@@ -2,10 +2,10 @@ import { NavLink } from "react-router-dom";
 
 export const Cabecera = () => {
   return (
-    <header class="cabecera espaciado bloque-superior">
+    <header className="cabecera espaciado bloque-superior">
       <h1>Lista de la compra</h1>
       <nav>
-        <ul class="navegacion">
+        <ul className="navegacion">
           <li>
             <NavLink to="/principal" activeClassName="actual">
               Principal
