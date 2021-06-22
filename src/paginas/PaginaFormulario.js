@@ -3,8 +3,6 @@ import { useHistory, useParams } from "react-router-dom";
 import { InfoArticulos } from "../components/InfoArticulos";
 import { ListaContext } from "../contexts/ListaContext";
 
-import { Redirect } from "react-router-dom";
-
 export const PaginaFormulario = (props) => {
   const { anyadirProducto, editarProducto } = props;
   const history = useHistory();
